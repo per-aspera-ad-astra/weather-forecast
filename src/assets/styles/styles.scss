@@ -1,0 +1,15 @@
+@use 'sass:math';
+@use "sass:string";
+
+@import 'normalize.css/normalize.css';
+
+@import 'helpers/variables';
+@import 'helpers/mixins';
+@import 'helpers/utils';
+
+@import 'base/global';
+
+@import 'blocks/header';
+@import 'blocks/main-info';
+@import 'blocks/secondary-info';
+  

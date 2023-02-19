@@ -1,0 +1,73 @@
+.header {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-bottom: vw($gutter-width);
+	width: 100%;
+
+	@include screen(md) {
+		flex-direction: row;
+		margin-bottom: $gutter-width * 2;
+	}
+
+	&__input,
+	&__units-btn {
+		border-radius: vw(math.div($gutter-width, 3));
+		color: #fff;
+		padding: vw(10px) vw(15px);
+		font-family: inherit;
+		font-size: inherit;
+		width: 100%;
+
+		@include screen(md) {
+			border-radius: math.div($gutter-width, 3);
+			padding: 10px 15px;
+		}
+	}
+
+	&__input {
+		border: 1px solid currentColor;
+		background-color: transparent;
+		margin-bottom: vw($gutter-width);
+
+		@include screen(md) {
+			margin-bottom: 0;
+			max-width: 300px;
+			width: 50%;
+		}
+
+		&::placeholder {
+			color: inherit;
+		}
+
+		&:focus {
+			box-shadow: 0 0 vw($gutter-width) 1px rgba(255, 255, 255, 0.25);
+			outline: none;
+
+			&::placeholder {
+				opacity: 0.5;
+			}
+
+			@include screen(md) {
+				box-shadow: 0 0 $gutter-width 1px rgba(255, 255, 255, 0.25);
+			}
+		}
+	}
+
+	&__units-btn {
+		background-color: $btn-color;
+		border: 0;
+		cursor: pointer;
+		transition: 0.3s;
+
+		@include screen(md) {
+			max-width: 250px;
+			width: calc(50% - $gutter-width);
+		}
+
+		&:hover {
+			background-color: darken($btn-color, 5%);
+		}
+	}
+}

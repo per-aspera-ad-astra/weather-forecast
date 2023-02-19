@@ -1,0 +1,71 @@
+.secondary-info {
+	$icon-size: 16px;
+
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: vw($gutter-width);
+	justify-content: space-between;
+	width: 100%;
+	
+	@include screen(md) {
+		gap: $gutter-width * 2;
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	&__card {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding: vw(math.div($gutter-width, 1.5));
+
+		@include screen(md) {
+			padding: 15px 20px;
+		}
+	}
+
+	&__name {
+		align-items: center;
+		display: flex;
+		flex-direction: row;
+		gap: vw(10px);
+		justify-content: center;
+		margin-bottom: vw(12px);
+		width: 100%;
+
+		@include screen(md) {
+			gap: 10px;
+			margin-bottom: 12px;
+		}
+	}
+
+	&__icon {
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		height: vw($icon-size);
+		width: vw($icon-size);
+
+		@include screen(md) {
+			height: $icon-size;
+			width: $icon-size;
+		}
+
+		svg {
+			display: block;
+		}
+	}
+
+	&__text {
+		text-transform: capitalize;
+	}
+
+	&__value {
+		font-family: $titles-font-family;
+		font-size: vw($medium-f);
+
+		@include screen(md) {
+			font-size: $medium-f;
+		}
+	}
+}

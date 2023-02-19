@@ -1,0 +1,105 @@
+.main-info {
+	$icon-size: 100px;
+
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-bottom: vw($gutter-width);
+	text-align: center;
+	width: 100%;
+
+	@include screen(md) {
+		flex-direction: row;
+		flex-wrap: wrap;
+		margin-bottom: $gutter-width * 2;
+	}
+
+	&__forecast-time {
+		font-size: vw($small-f);
+		letter-spacing: 0.05em;
+		margin-bottom: vw($gutter-width);
+		width: 100%;
+
+		@include screen(md) {
+			border-bottom: 1px solid currentColor;
+			font-size: $small-f;
+			margin-bottom: $gutter-width;
+			padding-bottom: $gutter-width;
+			text-align: right;
+		}
+	}
+
+	&__item {
+		margin-bottom: vw($gutter-width);
+		width: 100%;
+
+		@include screen(md) {
+			flex: 1;
+			margin-bottom: 0;
+			width: auto;
+		}
+
+		&_day-data {
+			align-items: center;
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 0;
+			order: 1;
+
+			@include screen(md) {
+				gap: $gutter-width;
+				flex-direction: column;
+				order: 0;
+			}
+		}
+	}
+
+	&__city {
+		font-family: $titles-font-family;
+		font-size: vw($medium-f);
+		margin: 0;
+
+		@include screen(md) {
+			font-size: $medium-f;
+		}
+	}
+
+	&__icon {
+		height: vw($icon-size);
+		margin: 0 auto;
+		width: vw($icon-size);
+
+		@include screen(md) {
+			height: $icon-size;
+			width: $icon-size;
+		}
+
+		img {
+			object-fit: contain;
+		}
+	}
+
+	&__descr {
+		text-transform: capitalize;
+	}
+
+	&__day-data {
+		font-size: vw($small-f);
+
+		@include screen(md) {
+			font-size: $small-f;
+		}
+	}
+
+	&__temperature {
+		font-family: $titles-font-family;
+		font-size: vw(40px);
+		font-weight: 700;
+
+		@include screen(md) {
+			font-size: 50px;
+			text-align: right;
+		}
+	}
+}

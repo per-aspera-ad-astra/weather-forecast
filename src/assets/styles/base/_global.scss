@@ -1,0 +1,54 @@
+html {
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+body {
+	background: linear-gradient(90deg, rgb(22, 135, 237), rgb(20, 55, 90));
+	color: #fff;
+	font-size: vw($base-f);
+	font-family: $base-font-family;
+	-webkit-font-smoothing: antialiased;
+  	-moz-osx-font-smoothing: grayscale;
+
+	@include screen(md) {
+		font-size: $base-f;
+	}
+}
+
+.app {
+	background-position: center;
+	background-size: cover;
+	transition: background-image 0.3s ease-in;
+}
+  
+.container {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	max-width: 850px;
+	margin: auto;
+	min-height: 100vh;
+	padding: vw($gutter-width);
+
+	@include screen(md) {
+		padding: $gutter-width * 2 $gutter-width;
+	}
+}
+
+.section {
+	background-color: $section-overlay;
+	border-radius: vw(math.div($gutter-width, 1.5));
+	padding: vw($gutter-width);
+
+	@include screen(md) {
+		border-radius: math.div($gutter-width, 1.5);
+		padding: $gutter-width;
+	}
+}

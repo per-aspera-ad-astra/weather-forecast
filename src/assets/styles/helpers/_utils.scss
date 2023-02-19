@@ -1,0 +1,7 @@
+@function vw($value, $screen-width: $base-screen-width) {
+	@if ($value == 0) {
+		@return 0;
+	}
+
+	@return  #{math.div($value, $screen-width) * 100vw};
+}
