@@ -11,21 +11,21 @@ const SecondaryInfo = ({weather, units}) => {
 			id: 1,
 			icon: <FaArrowDown />,
 			title: 'min',
-			data: weather.temp_min.toFixed(),
+			data: Math.round(weather.temp_min),
 			unit: tempUnit,
 		},
 		{
 			id: 2,
 			icon: <FaArrowUp />,
 			title: 'max',
-			data: weather.temp_max.toFixed(),
+			data: Math.round(weather.temp_max),
 			unit: tempUnit,
 		},
 		{
 			id: 3,
 			icon: <BiHappy />,
 			title: 'feels like',
-			data: weather.feels_like.toFixed(),
+			data: Math.round(weather.feels_like),
 			unit: tempUnit,
 		},
 		{
@@ -46,7 +46,7 @@ const SecondaryInfo = ({weather, units}) => {
 			id: 6,
 			icon: <FaWind />,
 			title: 'wind speed',
-			data: weather.speed.toFixed(),
+			data: Math.round(weather.speed),
 			unit: windUnit,
 		},
 	];

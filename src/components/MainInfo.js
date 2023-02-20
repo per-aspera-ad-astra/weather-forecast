@@ -4,10 +4,7 @@ const MainInfo = ({city, country, icon, description, sunrise, sunset, timezone, 
 		const hours = date.getUTCHours();
 		const minutes = date.getUTCMinutes();
 	
-		const formattedHours = hours < 10 ? `0${hours}` : hours;
-		const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
-	
-		return `${formattedHours}:${formattedMinutes}`;
+		return `${formatValue(hours)}:${formatValue(minutes)}`;
 	}
 	
 	function getDate(dt, timezone) {
@@ -18,10 +15,14 @@ const MainInfo = ({city, country, icon, description, sunrise, sunset, timezone, 
 		const month = date.getMonth();
 		const day = date.getDate();
 		const weekDay = date.getDay();
-		const hours = date.getUTCHours() < 10 ? `0${date.getUTCHours()}` : date.getUTCHours();
-		const minutes = date.getUTCMinutes() < 10 ? `0${date.getUTCMinutes()}` : date.getUTCMinutes();
+		const hours = date.getUTCHours();
+		const minutes = date.getUTCMinutes();
 	
-		return `${days[weekDay]}, ${day} ${months[month]} ${year} ${hours}:${minutes}`;
+		return `${days[weekDay]}, ${day} ${months[month]} ${year} ${formatValue(hours)}:${formatValue(minutes)}`;
+	}
+
+	function formatValue(value) {
+		return value < 10 ? `0${value}` : value;
 	}
 
 	return (

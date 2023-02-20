@@ -14,7 +14,7 @@ function App() {
   const [city, setCity] = useState('kharkiv');
   const [weather, setWeather] = useState(null);
   const [units, setUnits] = useState('metric');
-  const [bg, setBg] = useState(null);
+  const [bg, setBg] = useState(normalBg);
 
   useEffect(() => {
     const fetchWeatherData = async () => {
@@ -45,17 +45,18 @@ function App() {
 
   function setDynamicBg(temp, units) {
     if (units === 'metric') {
-      if (temp >= 30) setBg(hotBg);
-      if (temp < 30 && temp > 15) setBg(normalBg);
-      if (temp <= 15 && temp > 0) setBg(coldBg);
-      if (temp <= 0) setBg(frozenBg);
+      setBgByUnits(30, 15, 0);
     }
 
     if (units === 'imperial') {
-      if (temp >= 86) return setBg(hotBg);
-      if (temp < 86 && temp > 59) setBg(normalBg);
-      if (temp <= 59 && temp > 32) setBg(coldBg);
-      if (temp <= 32) setBg(frozenBg);
+      setBgByUnits(86, 59, 32);
+    }
+
+    function setBgByUnits(hot, normal, cold) {
+      if (temp >= hot) setBg(hotBg);
+      if (temp < hot && temp > normal) setBg(normalBg);
+      if (temp <= normal && temp > cold) setBg(coldBg);
+      if (temp <= cold) setBg(frozenBg);
     }
   }
  
